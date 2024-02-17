@@ -2,6 +2,8 @@
 using Mango.Services.AuthAPI.Service.IService;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.VisualBasic;
+using System.Collections.Generic;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -16,7 +18,7 @@ namespace Mango.Services.AuthAPI.Service
         {
             _jwtOptions = jwtOptions.Value;
         }
-        public string GenerateToken(ApplicationUser applicationUser)
+        public string GenerateToken(ApplicationUser applicationUser, IEnumerable<string> roles)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
 
@@ -29,16 +31,21 @@ namespace Mango.Services.AuthAPI.Service
                 new Claim(JwtRegisteredClaimNames.Name, applicationUser.UserName)
             };
 
-            //claimList.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+            claimList.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+            var tokenDescriptor = new SecurityTokenDescriptor();
 
-            var tokenDescriptor = new SecurityTokenDescriptor
+            tokenDescriptor.Audience = _jwtOptions.Audience;
+            tokenDescriptor.Issuer = _jwtOptions.Issuer;
+            tokenDescriptor.Subject = new ClaimsIdentity(claimList);
+            tokenDescriptor.Expires = DateTime.UtcNow.AddDays(7);
+            try
             {
-                Audience = _jwtOptions.Audience,
-                Issuer = _jwtOptions.Issuer,
-                Subject = new ClaimsIdentity(claimList),
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
+                tokenDescriptor.SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature);
+
+            }
+            catch (Exception ex) { 
+                
+            }
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);

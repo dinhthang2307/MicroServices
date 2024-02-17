@@ -31,6 +31,8 @@ namespace Mango.Services.AuthAPI.Controllers
             return Ok(_response);
         }
 
+
+
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequestDto loginRequestDto)
         {
@@ -38,7 +40,7 @@ namespace Mango.Services.AuthAPI.Controllers
             if(loginResponse.User == null)
             {
                 _response.IsSuccess = false;
-                _response.Message = "Üsername or password is incorrect";
+                _response.Message = "Username or password is incorrect";
                 return BadRequest(_response);
             }
             _response.Result = loginResponse;
