@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import HomePage from './pages/HomePage'
+import LoginPage from './pages/Login';
+import RegisterPage from './pages/Register';
+import { BrowserRouter,  Route } from "react-router-dom";
+import React from 'react';
+import {useState, useEffect} from 'react';
+import AuthProvider from './provider/authProvider';
+import Routes from './routes';
+import Navbar from './components/Navbar';
+
 
 function App() {
+  
+  const [email, setEmail] = useState('')
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [currentUser, setCurrentUser] = useState({})
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar currentUser= {currentUser}/>
+      <AuthProvider>
+        <Routes/>
+      </AuthProvider>
     </div>
   );
 }
