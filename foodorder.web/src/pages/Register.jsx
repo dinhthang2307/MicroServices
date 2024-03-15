@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Select from "react-select";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
@@ -53,7 +51,7 @@ const RegisterPage = (props) => {
         }
       })
       .catch(ex=>{
-        var bug = ex.response.data.message|| ex.message;
+        var bug = ex.response.data.message || ex.message;
         notifyError(bug)
       })
      }

@@ -1,27 +1,27 @@
 import './App.css';
-import HomePage from './pages/HomePage'
-import LoginPage from './pages/Login';
-import RegisterPage from './pages/Register';
-import { BrowserRouter,  Route } from "react-router-dom";
 import React from 'react';
-import {useState, useEffect} from 'react';
-import AuthProvider from './provider/authProvider';
-import Routes from './routes';
-import Navbar from './components/Navbar';
-
-
+import HomePage from './pages/HomePage';
+import Login from './pages/Login';
+import RegisterPage from './pages/Register';
+import NotFoundPage from './pages/NotFoundPage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
+import Products from './pages/Products';
 function App() {
-  
-  const [email, setEmail] = useState('')
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [currentUser, setCurrentUser] = useState({})
+
   return (
-    <div className="App">
-      <Navbar currentUser= {currentUser}/>
-      <AuthProvider>
-        <Routes/>
-      </AuthProvider>
-    </div>
+    <BrowserRouter>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<div>User Profile</div>} />
+        <Route path="/product" element={<Products />} />
+        <Route path="/registration" element={<RegisterPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Layout>
+  </BrowserRouter>
   );
 }
 

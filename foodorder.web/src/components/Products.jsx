@@ -3,7 +3,8 @@ import Product1 from "../assets/Images/brinjal.png";
 import Product2 from "../assets/Images/cf.png";
 import Product3 from "../assets/Images/carrot.png";
 import Product4 from "../assets/Images/kado.png";
-import Product from "./Product";
+import Product from "./product/Product";
+import ProductDetail from "./product/ProductDetail";
 
 const Products = () => {
   return (
@@ -60,6 +61,14 @@ const Products = () => {
             </div>
           </div>
         </div>
+
+        {/* <ProductDetail
+          Image={Product1}
+          Name="Eggplant"
+          Price="$0.5/kg"
+          Color="p1color"
+        /> */}
+       
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../provider/authProvider";
-export const ProtectedRoute = () => {
-    const { token } = useAuth();
-  
+import { connect } from "react-redux"
+
+const ProtectedRoute = ({user}) => {
+ 
     // Check if the user is authenticated
-    if (!token) {
+    if (!user) {
       // If not authenticated, redirect to the login page
       return <Navigate to="/login" />;
     }
@@ -12,3 +12,12 @@ export const ProtectedRoute = () => {
     // If authenticated, render the child routes
     return <Outlet />;
   };
+
+  const mapStateToProps = (state) => ({
+    isLoading: state.auth.isLoading,
+    authError: state.auth.error,
+    user: state.auth.user
+  })
+
+  
+export default connect(mapStateToProps)(ProtectedRoute)

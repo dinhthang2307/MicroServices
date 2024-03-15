@@ -7,18 +7,20 @@ import Healthy from '../components/Healthy'
 import ProductSlider from '../components/ProductSlider'
 import Products from '../components/Products'
 import Footer from '../components/Footer'
+import ListItems from '../components/ListItems'
 
 function HomePage() {
 
   return (
-    <>
-    <Hero />
-    <Delivery />
-    <Healthy />
-    <ProductSlider />
-    <Products />
-    <Footer />
-    </>
+    <div>
+      <Hero />
+      <Delivery />
+      <Healthy />
+      <ProductSlider />
+      <Products />
+      
+      <Footer />
+    </div>
   )
 }
 
