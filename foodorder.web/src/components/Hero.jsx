@@ -26,12 +26,12 @@ const Hero = () => {
                 <br />our fields to your doorstep.</p>
           </div>
           <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-            <button type="button" className="btn btn-warning btn-lg px-4 me-md-2 rounded-0">
+            {/* <button type="button" disabled className="btn btn-warning btn-lg px-4 me-md-2 rounded-0">
               Shop Your Veg
             </button>
-            <button type="button" className="btn btn-light btn-lg px-4 rounded-0">
+            <button type="button" disabled className="btn btn-light btn-lg px-4 rounded-0">
               Shop All Product
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

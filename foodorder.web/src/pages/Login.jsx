@@ -16,7 +16,7 @@ const LoginPage = ({requestUserLogin, authError, user}) => {
  // if the user is already authenticated, redirect them to the "/profile" page
  React.useEffect(() => {
   if (user?.email ) {
-    navigate("/profile")
+    navigate("/")
   }
 }, [user, navigate])
   const notifySuccess = () =>{
@@ -63,7 +63,7 @@ const LoginPage = ({requestUserLogin, authError, user}) => {
         </div>
         <button type="submit" className='btn btn-success col-12 col-md-6 offset-md-3 pb-2'>Login</button><br/>
       </form>
-      <a href='register' className='col-12 col-md-6 offset-md-3 pb-2'>register</a>
+      <a href='/registration' className='col-12 col-md-6 offset-md-3 pb-2'>register</a>
       <ToastContainer />
 
     </div>
@@ -77,7 +77,7 @@ const mapStateToProps = (state) => ({
 })
  
 const mapDispatchToProps = (dispatch) => ({
-  requestUserLogin: ({ username, password }) => dispatch(authActions.requestUserLogin({ username, password }))
+  requestUserLogin: ({ username, password }) => dispatch(authActions.requestUserLogin({ username, password })),
 })
  
 

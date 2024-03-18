@@ -3,11 +3,12 @@ import styled from "styled-components";
 import { CloseButton } from "./CloseButton";
 import { P } from "./P";
 import { CartTotals } from "./CartTotals";
-import { CartInfo } from "./CartInfo";
+import CartInfo from "./CartInfo";
 import { lightGray } from "./GlobalStyles";
 import { Actions as itemActions } from "../../redux/item/action";
 import { connect } from "react-redux";
-const CartDetails = ({
+import Modal from 'react-modal';
+const CartDetail = ({
   cart,
   increaseQ,
   decreaseQ,
@@ -20,10 +21,10 @@ const CartDetails = ({
         var action = requestCloseCart();
     } 
   return (
-    <OpenWrapper open={open}>
+    <Modal isOpen={open}>
       <CloseButton onClick={handleCloseClick} />
       <Wrapper>
-        {!cart.length && <P>Cart is empty</P>}
+        {!cart.length && <P>Cart is empty please go shopping at product tab</P>}
         {!!cart.length && (
           <>
             <CartTotals cart={cart} cartCountTotal={cartCountTotal} />
@@ -36,24 +37,20 @@ const CartDetails = ({
           </>
         )}
       </Wrapper>
-    </OpenWrapper>
+    </Modal>
   );
 };
-const OpenWrapper = styled.div`
-  position: fixed;
-  top: 110;
-  right: 0;
-  z-index: 134;
-  background-color: ${lightGray};
-  width: 320px;
-  transform: translateX(${({ open }) => (open ? "0px" : "320px")});
-  transition: transform 0.5s;
-  max-height: 99%;
-  min-height: 75px;
-  overflow-y: auto;
-  border-radius: 0 0 0 20px;
-  box-sizing: border-box;
-`;
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 const Wrapper = styled.div`
   padding: 5px 15px;
   display: flex;
@@ -65,4 +62,4 @@ const mapDispatchToProps=(dispatch)=>({
     requestCloseCart: ()=> dispatch(itemActions.requestCloseCart()),
   })
   
-export default connect(null, mapDispatchToProps)(CartDetails)
+export default connect(null, mapDispatchToProps)(CartDetail)

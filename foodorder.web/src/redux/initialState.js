@@ -5,7 +5,6 @@ export default {
       isLoading: false,
       error: false,
       user: {},
-     
     }, 
     items: {
       items: API,

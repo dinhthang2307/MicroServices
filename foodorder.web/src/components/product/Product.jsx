@@ -8,7 +8,7 @@ const Product = ({Image, Name, Price, Color}) => {
             <img src={Image} alt="" className='w-75 h-75'/>
             <h3>{Name}</h3>
             <p>{Price}</p>
-            <button className='btn bg-white w-100 rounded-0'>Add to Cart</button>
+            {/* <button className='btn bg-white w-100 rounded-0' disabled>Add to Cart</button> */}
             </div>
         </div>
     </div>

@@ -112,8 +112,9 @@ const RegisterPage = (props) => {
         </div>
         <div className="col-12 col-md-6 offset-md-3 pb-2">
             <button type="submit" class="form-control btn btn-success">Register</button>
+            <a href="/login">Login</a>
         </div>
-        <a href="/login">Login</a>
+       
         </div>
 
       </form>

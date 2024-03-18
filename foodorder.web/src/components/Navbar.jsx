@@ -6,68 +6,81 @@ import { Link } from "react-router-dom"
 import { Actions as authActions } from "../redux/auth"; 
 import { Actions as itemActions } from "../redux/item/action";
 
-const Navbar = ({logUserOut, isLoading, authError, user, cartOpen,requestOpenCart}) => {
+const Navbar = ({logUserOut, cart,  user, requestOpenCart}) => {
   const handleLogout = ()=>{
     logUserOut();
   }
-   const onOpenCartClick = ()=>{
+  const cartCountTotal = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const onOpenCartClick = () => {
     var action = requestOpenCart();
   }
   return (
-    <div className="container-fluid px-5 header sticky-top">
-      <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2 border-bottom border-dark">
-        <Link
-         to="/"
-          className="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
-        >
-            <img src={Logo} alt=""/>
-        </Link>
-
-        <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li>
-            <Link to="/" className="nav-link px-2 menu-color">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/product" className="nav-link px-2 menu-color">
-              Products
-            </Link>
-          </li>
-          <li>
-            <a href="#" className="nav-link px-2 menu-color">
-              About
-            </a>
-          </li>
-          
-          { user?.email ? "":
-
-          <li>
-            <a href="/login" className="nav-link px-2 menu-color">
-              Login
-            </a>
-          </li>
+      <nav class="navbar navbar-expand-md bg-body-tertiary">
+  <div class="container-xl">
+    <a class="navbar-brand" href="#">
+      <img src="https://codingyaar.com/wp-content/uploads/coding-yaar-logo.png" alt=""/>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        <Link to="/" className="nav-link active" aria-current="page">
+               Home
+             </Link>
+        </li>
+        {user?.email ? <li class="nav-item">
+          <Link to="/product" className="nav-link">
+               Products
+             </Link>
+        </li> 
+        :
+     ""}
+     {user?.email ? "" :
+        <li class="nav-item">
+        <Link to="/Login" className="nav-link">
+               Login
+             </Link>
+        </li>}
+        {user?.email ? <li class="nav-item">
+          <Link onClick={()=>{handleLogout()}} className="nav-link">
+               Logout
+             </Link>
+        </li> 
+        :
+     ""}
+      </ul>
+      <div class="search-and-icons">
+        <form class="d-flex mb-2 me-2" role="search">
+          <input class="form-control me-2" type="search" disabled aria-label="Search"/>
+        </form>
+        <div class="user-icons d-flex mb-2">
+          {
+            user?.email ?  <div className="cart"><button className="btn btn-outline-danger">
+              <i onClick={()=>onOpenCartClick()} className="bi bi-cart3">
+                </i></button>
+                </div> : ""
           }
-
-
-        </ul>
-
-        <div className="col-md-3 text-dark text-decoration-none">
-          {user?.email ? <input type="button" value="log out" className="btn btn-success" onClick={() => handleLogout()}/>:""}
-          <i className="bi bi-cart fs-3 text-dark text-decoration-none" onClick={()=>onOpenCartClick()}>o</i>
+         
         </div>
-
-       
-      </header>
+      </div>
+      <div class="contact-info d-md-flex">
+        <p>+0987654321 | +1234567890 </p>
+        <p><a href="mailto:">contact@domainname.com</a></p>
+      </div>
     </div>
+  </div>
+</nav>
+
+
   );
 };
 
 const mapStateToProps = (state) => ({
   isLoading: state.auth.isLoading,
-  authError: state.auth.error,
   user: state.auth.user,
-  cartOpen: state.items.isCartOpen
+  cart: state.items.cart
 })
  
 const mapDispatchToProps = (dispatch) => ({

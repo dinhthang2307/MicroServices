@@ -6,8 +6,24 @@ import { P } from "./P";
 import { Arrow } from "./Arrow";
 import { VerticalBar } from "./VerticalBar";
 import { CartButtons } from "./CartButtons";
+import { connect } from "react-redux";
+import { Actions as itemActions } from "../../redux/item/action";
 
-export const CartInfo = ({ cart, increaseQ, decreaseQ, removeFromCart }) => (
+const CartInfo = ({ cart, requestIncCartQuantity, requestDesCartQuantity, requestRemoveFromCart }) =>{ 
+  const increaseQuantity =(productid)=> {
+    let action = requestIncCartQuantity({productid});
+  };
+
+  const desQuantity =(productid) =>{
+    let action = requestDesCartQuantity({productid});
+  }
+
+  const removeFromCart = (productid) => {
+    let action = requestRemoveFromCart({productid});
+
+  }
+  
+  return (
   <>
     {cart.map((item, i) => (
       <DetailColumn key={item.name}>
@@ -17,15 +33,24 @@ export const CartInfo = ({ cart, increaseQ, decreaseQ, removeFromCart }) => (
         </P>
 
         <CartButtons
-          increaseQ={() => increaseQ(i)}
-          decreaseQ={() => decreaseQ(i)}
-          removeFromCart={() => removeFromCart(i)}
+          increaseQ={() => increaseQuantity(item.id)}
+          decreaseQ={() => desQuantity(item.id)}
+          removeFromCart={() => removeFromCart(item.id)}
         />
       </DetailColumn>
     ))}
     <CheckoutButton>Checkout</CheckoutButton>
   </>
 );
+}
+
+const mapDispatchToProps=(dispatch)=>({
+  requestIncCartQuantity: ({productid})=> dispatch(itemActions.requestIncCartQuantity({productid})),
+  requestDesCartQuantity: ({productid})=> dispatch(itemActions.requestDesCartQuantity({productid})),
+  requestRemoveFromCart: ({productid})=> dispatch(itemActions.requestRemoveFromCart({productid})) 
+})
+
+export default connect(null, mapDispatchToProps)(CartInfo);
 const DetailColumn = styled.div`
   display: flex;
   flex-flow: column;

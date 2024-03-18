@@ -4,16 +4,17 @@ import Product2 from "../assets/Images/cf.png";
 import Product3 from "../assets/Images/carrot.png";
 import Product4 from "../assets/Images/kado.png";
 import Product from "./product/Product";
-import ProductDetail from "./product/ProductDetail";
-
+import { Link } from "react-router-dom";
 const Products = () => {
   return (
     <div className="container py-5">
       <div className="d-flex justify-content-between">
         <h3 className="text-success">Customer Favorites</h3>
+        <Link to="/product">
         <button className="btn btn-transparent fw-bold px-3 rounded-0 border border-success">
           All Products
         </button>
+        </Link>
       </div>
       <div className="row mt-5">
         <Product
@@ -39,13 +40,16 @@ const Products = () => {
             <div className="border shadow-sm d-flex p4color">
               <div className="text-center px-0 px-lg-5">
                 <img src={Product4} alt="" className="p-Image" />
+                <h3>Best Fresh Testing Pumpkin</h3>
+
+                <p>$0.80/kg</p>
               </div>
               <div className="d-flex flex-column justify-content-center">
                 <h3>Best Fresh Testing Pumpkin</h3>
                 <p>$0.80/kg</p>
-                <button className="btn bg-white w-100 rounded-0">
+                {/* <button className="btn bg-white w-100 rounded-0">
                   Add to Cart
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
@@ -55,20 +59,12 @@ const Products = () => {
             <div className="border shadow-sm py-4 px-3 p5color">
               <h3>Best Fresh Testing Bell Pepper</h3>
               <p>$1/kg</p>
-              <button className="btn bg-white w-100 rounded-0">
+              {/* <button className="btn bg-white w-100 rounded-0">
                 Add to Cart
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
-
-        {/* <ProductDetail
-          Image={Product1}
-          Name="Eggplant"
-          Price="$0.5/kg"
-          Color="p1color"
-        /> */}
-       
       </div>
     </div>
   );
