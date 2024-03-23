@@ -8,6 +8,7 @@ import { VerticalBar } from "./VerticalBar";
 import { CartButtons } from "./CartButtons";
 import { connect } from "react-redux";
 import { Actions as itemActions } from "../../redux/item/action";
+import { useNavigate } from "react-router-dom";
 
 const CartInfo = ({ cart, requestIncCartQuantity, requestDesCartQuantity, requestRemoveFromCart }) =>{ 
   const increaseQuantity =(productid)=> {
@@ -20,16 +21,20 @@ const CartInfo = ({ cart, requestIncCartQuantity, requestDesCartQuantity, reques
 
   const removeFromCart = (productid) => {
     let action = requestRemoveFromCart({productid});
-
   }
+  const navigate = useNavigate();
+
+  const createInvoice = () => {
+    navigate("/create-invoice");
+  };
   
   return (
   <>
     {cart.map((item, i) => (
       <DetailColumn key={item.name}>
         <P>
-          {item.name} <VerticalBar /> {item.quantity} x ${item.price} <Arrow />{" "}
-          ${numberFormat(item.price * item.quantity)}
+          {item.name} <VerticalBar /> {item.quantity} x {item.price} vnd <Arrow />{" "}
+          {numberFormat(item.price * item.quantity) } vnd
         </P>
 
         <CartButtons
@@ -39,7 +44,8 @@ const CartInfo = ({ cart, requestIncCartQuantity, requestDesCartQuantity, reques
         />
       </DetailColumn>
     ))}
-    <CheckoutButton>Checkout</CheckoutButton>
+    <CheckoutButton onClick={createInvoice}>Checkout</CheckoutButton>
+
   </>
 );
 }

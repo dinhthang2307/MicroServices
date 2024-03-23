@@ -117,7 +117,6 @@ Actions.requestDesQuantity = ({productid})=>{
 
 Actions.requestAddItemToCard = ({product})=>{
   return async (dispatch) =>{
-    
     dispatch({ type: REQUEST_ADD_TO_CART, product: product})
     dispatch({type: REQUEST_MARK_ITEM_AS_ADD_TO_CART, product: product})
   }

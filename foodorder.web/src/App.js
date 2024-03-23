@@ -7,8 +7,10 @@ import NotFoundPage from './pages/NotFoundPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import Products from './pages/Products';
+import CartDetailPage from './pages/CartDetailPage';
 import { connect } from 'react-redux';
 import { Actions as authActions } from './redux/auth';
+import InvoiceFormPage  from "./pages/InvoiceFormPage"
 function App({requestUserLogin, user}) {
 
   const getUserLoginOnRefreshPage = (user) => {
@@ -29,8 +31,9 @@ function App({requestUserLogin, user}) {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
-        {user?.email ?  <Route path="/product" element={<Products />} /> :   <Route path="*" element={<NotFoundPage />} /> }
-       
+        {user?.email ?  <Route path="/product" element={<Products />} /> : <Route path="*" element={<NotFoundPage />} /> }
+        {user?.email ?  <Route path="/cart" element={<CartDetailPage />} /> : <Route path="*" element={<NotFoundPage />} /> }
+        {user?.email ?  <Route path="/create-invoice" element={<InvoiceFormPage />} /> : <Route path="*" element={<NotFoundPage />} /> }
         <Route path="/registration" element={<RegisterPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

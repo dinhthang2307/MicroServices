@@ -19,8 +19,8 @@ const CartDetail = ({
 }) => {
     const handleCloseClick = () =>{
         var action = requestCloseCart();
-    } 
-  return (
+    }
+    return (
     <Modal isOpen={open}>
       <CloseButton onClick={handleCloseClick} />
       <Wrapper>

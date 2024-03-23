@@ -17,9 +17,9 @@ const Navbar = ({logUserOut, cart,  user, requestOpenCart}) => {
   return (
       <nav class="navbar navbar-expand-md bg-body-tertiary">
   <div class="container-xl">
-    <a class="navbar-brand" href="#">
+    <div class="navbar-brand">
       <img src="https://codingyaar.com/wp-content/uploads/coding-yaar-logo.png" alt=""/>
-    </a>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -57,9 +57,15 @@ const Navbar = ({logUserOut, cart,  user, requestOpenCart}) => {
         </form>
         <div class="user-icons d-flex mb-2">
           {
-            user?.email ?  <div className="cart"><button className="btn btn-outline-danger">
-              <i onClick={()=>onOpenCartClick()} className="bi bi-cart3">
+            user?.email ?  <div className="cart">
+               <Link to="/cart">
+              <button className="btn btn-outline-danger">
+              {/* <i onClick={()=>onOpenCartClick()} className="bi bi-cart3">
+                </i></button> */}
+               
+                <i className="bi bi-cart3">
                 </i></button>
+                </Link>
                 </div> : ""
           }
          

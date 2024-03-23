@@ -11,8 +11,8 @@ export const CartTotals = ({ cart, cartCountTotal }) => {
 
   return (
     <H2>
-      Items: {cartCountTotal} <VerticalBar /> Total Price: $
-      {numberFormat(cartPriceTotal)}
+      Items: {cartCountTotal} <VerticalBar /> Total Price: 
+      {numberFormat(cartPriceTotal)} vnd
     </H2>
   );
 };

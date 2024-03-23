@@ -8,7 +8,6 @@ export const GlobalStyles = createGlobalStyle`
  body { 
   background-size: cover;
   position: relative;
-
   background-attachment: fixed;
   background-image: url("https://images.pexels.com/photos/370799/pexels-photo-370799.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
  }

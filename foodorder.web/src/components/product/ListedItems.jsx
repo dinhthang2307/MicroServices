@@ -16,7 +16,6 @@ const ListedItems = ({
   useEffect(()=>{console.log("Listed Items Rendered", listItem)},[])
 
   const increaseQuantity =(productid)=> {
-    console.log("increase Quantity Called");
     let action = requestIncQuantity({productid});
   };
 
@@ -32,7 +31,7 @@ const ListedItems = ({
     {listItem.map((item) => (
       <Column key={item.name}>
         <H4>{item.name}</H4>
-        <P>${item.price}</P>
+        <P>{item.price} vnd</P>
 
         {!item.inCart && (
           <div>

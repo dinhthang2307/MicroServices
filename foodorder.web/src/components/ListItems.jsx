@@ -3,12 +3,12 @@ import styled from "styled-components";
 import  ListedItems  from "./product/ListedItems";
 import { connect } from "react-redux";
 import { GlobalStyles } from "./product/GlobalStyles";
-function ListItems({listItem, cartOpen, cart}) {
+function ListItems({listItem}) {
   return (
     <>
     <GlobalStyles/>
       <Wrapper>
-        <H1>Shopping Cart App</H1>
+        <H1> Product List </H1>
         <ListedItems
           listItem={listItem}
         />
@@ -26,13 +26,11 @@ const Wrapper = styled.div`
 const H1 = styled.h1`
   padding: 0 10px 50px 10px;
   text-align: center;
+  color: white;
 `;
-
 
 const mapStateToProps = (state) => ({
     listItem: state.items.items,
-    cartOpen: state.items.isCartOpen,
-    cart: state.items.cart
   })
    
 export default connect(mapStateToProps, null)(ListItems)
