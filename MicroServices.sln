@@ -11,17 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6674AB06-7F43-4A3B-BD75-33F0D1AD32A3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.Services.CouponAPI", "Mango.Services.CouponAPI\Mango.Services.CouponAPI.csproj", "{A4873DC5-0AB9-4B14-9788-889BBE78A301}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.Web", "Mango.Web\Mango.Web.csproj", "{0696D842-A97C-4796-9F89-99C26F44C610}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.Services.AuthAPI", "Mango.Services.AuthAPI\Mango.Services.AuthAPI.csproj", "{146D304B-09EE-4649-A5E2-5601A6CF2210}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "foodorder.web", "FoodOrder.Web\foodorder.web.esproj", "{16443C86-11CC-47C7-AC27-E9DD59BCFA10}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "crwn-clothing-v2", "crwn-clothing-v2\crwn-clothing-v2.esproj", "{7AB8EFD7-492F-4463-815A-36E5672E6DF4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mango.Services.ProductAPI", "ProductAPI\Mango.Services.ProductAPI.csproj", "{381D4191-ADD0-4115-9C82-693FD3ACAC33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mango.Services.ProductAPI", "Mango.Services.ProductAPI\Mango.Services.ProductAPI.csproj", "{6CD120D2-2EA7-48B8-B613-A73A4570A9D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A4873DC5-0AB9-4B14-9788-889BBE78A301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A4873DC5-0AB9-4B14-9788-889BBE78A301}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A4873DC5-0AB9-4B14-9788-889BBE78A301}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A4873DC5-0AB9-4B14-9788-889BBE78A301}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0696D842-A97C-4796-9F89-99C26F44C610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0696D842-A97C-4796-9F89-99C26F44C610}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0696D842-A97C-4796-9F89-99C26F44C610}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0696D842-A97C-4796-9F89-99C26F44C610}.Release|Any CPU.Build.0 = Release|Any CPU
 		{146D304B-09EE-4649-A5E2-5601A6CF2210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{146D304B-09EE-4649-A5E2-5601A6CF2210}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{146D304B-09EE-4649-A5E2-5601A6CF2210}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,27 +33,18 @@ Global
 		{16443C86-11CC-47C7-AC27-E9DD59BCFA10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16443C86-11CC-47C7-AC27-E9DD59BCFA10}.Release|Any CPU.Build.0 = Release|Any CPU
 		{16443C86-11CC-47C7-AC27-E9DD59BCFA10}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{7AB8EFD7-492F-4463-815A-36E5672E6DF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7AB8EFD7-492F-4463-815A-36E5672E6DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7AB8EFD7-492F-4463-815A-36E5672E6DF4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{7AB8EFD7-492F-4463-815A-36E5672E6DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7AB8EFD7-492F-4463-815A-36E5672E6DF4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7AB8EFD7-492F-4463-815A-36E5672E6DF4}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{381D4191-ADD0-4115-9C82-693FD3ACAC33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{381D4191-ADD0-4115-9C82-693FD3ACAC33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{381D4191-ADD0-4115-9C82-693FD3ACAC33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{381D4191-ADD0-4115-9C82-693FD3ACAC33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CD120D2-2EA7-48B8-B613-A73A4570A9D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CD120D2-2EA7-48B8-B613-A73A4570A9D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CD120D2-2EA7-48B8-B613-A73A4570A9D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CD120D2-2EA7-48B8-B613-A73A4570A9D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A4873DC5-0AB9-4B14-9788-889BBE78A301} = {6674AB06-7F43-4A3B-BD75-33F0D1AD32A3}
-		{0696D842-A97C-4796-9F89-99C26F44C610} = {FACD783D-63E7-4B0C-825D-19A014FB3F2E}
 		{146D304B-09EE-4649-A5E2-5601A6CF2210} = {6674AB06-7F43-4A3B-BD75-33F0D1AD32A3}
 		{16443C86-11CC-47C7-AC27-E9DD59BCFA10} = {FACD783D-63E7-4B0C-825D-19A014FB3F2E}
-		{7AB8EFD7-492F-4463-815A-36E5672E6DF4} = {FACD783D-63E7-4B0C-825D-19A014FB3F2E}
-		{381D4191-ADD0-4115-9C82-693FD3ACAC33} = {6674AB06-7F43-4A3B-BD75-33F0D1AD32A3}
+		{6CD120D2-2EA7-48B8-B613-A73A4570A9D6} = {6674AB06-7F43-4A3B-BD75-33F0D1AD32A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {75A82924-6CBE-46DD-AEF0-9E31CAED4A33}

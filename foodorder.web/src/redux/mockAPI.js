@@ -25,7 +25,7 @@ const API = [
       price: 100000,
       quantity: 1,
       inCart: false,
-      description: "Cherry Cherry Cherry " ,
+      description: "Cherry Cherry Cherry",
       src:
         "https://images.pexels.com/photos/109274/pexels-photo-109274.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
     },
@@ -35,7 +35,7 @@ const API = [
       price: 120000,
       quantity: 1,
       inCart: false,
-      description: "Avacado Avacado Avacado " ,
+      description: "Avacado Avacado Avacado",
       src:
         "https://images.pexels.com/photos/557659/pexels-photo-557659.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
     },

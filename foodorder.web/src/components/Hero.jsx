@@ -26,12 +26,6 @@ const Hero = () => {
                 <br />our fields to your doorstep.</p>
           </div>
           <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-            {/* <button type="button" disabled className="btn btn-warning btn-lg px-4 me-md-2 rounded-0">
-              Shop Your Veg
-            </button>
-            <button type="button" disabled className="btn btn-light btn-lg px-4 rounded-0">
-              Shop All Product
-            </button> */}
           </div>
         </div>
       </div>

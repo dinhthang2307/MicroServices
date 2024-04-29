@@ -31,8 +31,6 @@ namespace Mango.Services.AuthAPI.Controllers
             return Ok(_response);
         }
 
-
-
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequestDto loginRequestDto)
         {
@@ -47,7 +45,6 @@ namespace Mango.Services.AuthAPI.Controllers
             return Ok(_response);
         }
 
-
         [HttpPost("AssignRole")]
         public async Task<IActionResult> Login([FromBody]RegistrationRequestDto model)
         {
@@ -58,7 +55,6 @@ namespace Mango.Services.AuthAPI.Controllers
                 _response.Message = "Error encountered";
                 return BadRequest(_response);
             }
-            //_response.Result = loginResponse;
             return Ok(_response);
         }
     }

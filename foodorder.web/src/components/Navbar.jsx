@@ -10,10 +10,7 @@ const Navbar = ({logUserOut, cart,  user, requestOpenCart}) => {
   const handleLogout = ()=>{
     logUserOut();
   }
-  const cartCountTotal = cart.reduce((acc, item) => acc + item.quantity, 0);
-  const onOpenCartClick = () => {
-    var action = requestOpenCart();
-  }
+
   return (
       <nav class="navbar navbar-expand-md bg-body-tertiary">
   <div class="container-xl">
@@ -60,9 +57,6 @@ const Navbar = ({logUserOut, cart,  user, requestOpenCart}) => {
             user?.email ?  <div className="cart">
                <Link to="/cart">
               <button className="btn btn-outline-danger">
-              {/* <i onClick={()=>onOpenCartClick()} className="bi bi-cart3">
-                </i></button> */}
-               
                 <i className="bi bi-cart3">
                 </i></button>
                 </Link>
