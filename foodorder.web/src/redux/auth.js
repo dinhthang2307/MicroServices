@@ -97,7 +97,6 @@ Actions.requestUserLogin = ({ username, password }) => {
     }
   }
 
-
  Actions.logUserOut = () => {
     localStorage.removeItem("access_token")
     localStorage.removeItem("user")

@@ -13,7 +13,7 @@ const ListedItems = ({
   requestDesQuantity,
   requestAddToCart
 }) =>{
-  useEffect(()=>{console.log("Listed Items Rendered", listItem)},[])
+  useEffect(()=>{console.log("Listed Items Rendered", listItem)})
 
   const increaseQuantity =(productid)=> {
     let action = requestIncQuantity({productid});
@@ -32,12 +32,11 @@ const ListedItems = ({
       <Column key={item.name}>
         <H4>{item.name}</H4>
         <P>{item.price} vnd</P>
-
         {!item.inCart && (
           <div>
-            <AddButton onClick={() => increaseQuantity(item.id)} />
+            <AddButton onClick={() => increaseQuantity(item.productId)} />
             <span>{item.quantity}</span>
-            <SubtractButton onClick={()=>desQuantity(item.id)} />
+            <SubtractButton onClick={()=>desQuantity(item.productId)} />
           </div>
         )}
 

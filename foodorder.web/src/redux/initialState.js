@@ -7,7 +7,7 @@ export default {
       user: {},
     }, 
     items: {
-      items: API,
+      items: [],
       cart: [],
       isCartOpen: false
     }

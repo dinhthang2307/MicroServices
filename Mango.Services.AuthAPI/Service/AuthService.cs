@@ -46,7 +46,7 @@ namespace Mango.Services.AuthAPI.Service
             bool isValid = await _userManager.CheckPasswordAsync(user, requestDto.Password);
             if(user == null || isValid == false)
             {
-                return new LoginResponseDto() { User = null, Token="" };
+                return new LoginResponseDto() { User = null, Token= "" };
             }
             var roles = await _userManager.GetRolesAsync(user);
             var token = _jwtTokenGenerator.GenerateToken(user, roles);
@@ -103,7 +103,6 @@ namespace Mango.Services.AuthAPI.Service
                 }
             }
             catch (Exception ex) { 
-            
             }
             return "Error";
         }

@@ -39,10 +39,8 @@ namespace Mango.Services.AuthAPI.Service
             try
             {
                 tokenDescriptor.SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature);
-
             }
             catch (Exception ex) { 
-                
             }
 
             var token = tokenHandler.CreateToken(tokenDescriptor);

@@ -1,4 +1,5 @@
 import initialState from "../initialState"
+import axios from "axios"
 export const REQUEST_ADD_TO_CART = "@@cart/ADD_TO_CART"
 export const REQUEST_MARK_ITEM_AS_ADD_TO_CART = "@@cart/REQUEST_MARK_ITEM_AS_ADD_TO_CART"
 export const REQUEST_INCREASE_QUANTITY = "@@cart/REQUEST_INCREASE_QUANTITY"
@@ -9,7 +10,7 @@ export const REQUEST_INCREASE_CART_QUANTITY = "@@cart/REQUEST_INCREASE_CART_QUAN
 export const REQUEST_DES_CART_QUANTITY = "@@cart/REQUEST_DES_CART_QUANTITY"
 export const REQUEST_REMOVE_FROM_CART = "@@cart/REQUEST_REMOVE_FROM_CART"
 export const REQUEST_MARK_ITEM_AS_REMOVE_FROM_CART = "@@cart/REQUEST_MARK_ITEM_AS_REMOVE_FROM_CART"
-
+export const REQUEST_GET_ITEM_SUCCESS = "@@cart/REQUEST_GET_ITEM_SUCCESS"
 
 export default function itemReducer(state = initialState.items, action = {}) {
   switch(action.type) {
@@ -44,24 +45,31 @@ export default function itemReducer(state = initialState.items, action = {}) {
     return {...state, items: tempitems, cart: tempcard }
      case REQUEST_INCREASE_QUANTITY:
         var tempcart = state.items.map((item) => {
-          if (item.id === action.productid) {
+          if (item.productId === action.productid) {
               return { ...item, quantity: item.quantity + 1 };
           }
           return item;
       });
       return {
         ...state,
-      items: tempcart};
+        items: tempcart
+      };
       case REQUEST_DES_QUANTITY:
         var  newcart = state.items.map((item) => {
-          if (item.id === action.productid) {
+          if (item.productId === action.productid) {
               return { ...item, quantity: item.quantity > 0 ? item.quantity - 1 : 0 };
           }
           return item;
       });
       return {
         ...state,
-      items: newcart};
+        items: newcart
+      };
+      case REQUEST_GET_ITEM_SUCCESS:
+        return {
+          ...state,
+          items: action.data
+        }
       case REQUEST_OPEN_CART:
         return{
           ...state,
@@ -152,5 +160,32 @@ Actions.requestRemoveFromCart = ({productid})=>{
   return async (dispatch) =>{
     dispatch({ type: REQUEST_REMOVE_FROM_CART, productid: productid})
     dispatch({type: REQUEST_MARK_ITEM_AS_REMOVE_FROM_CART, productid: productid})
+  }
+}
+
+Actions.requestGetItems = () =>{
+  return async (dispatch)=>{
+    let token = localStorage.getItem("access_token");
+    const headers = {
+      'Content-type': 'application/json; charset=UTF-8',
+      'mode': 'no-cors',
+      'Accept': 'application/json',
+      'Origin': 'http://localhost:3000',
+      'Authorization': `Bearer ${token}`
+    }
+
+  
+    try {
+      const res = await axios({
+        method: `GET`,
+        url: `https://localhost:7098/api/product`,
+        headers,
+        
+      })
+      dispatch({type: REQUEST_GET_ITEM_SUCCESS, data: res.data.result})
+    }
+    catch { 
+      //console
+    }
   }
 }

@@ -76,7 +76,5 @@ namespace Mango.Services.ProductAPI.Data
                 Src = "https://images.pexels.com/photos/42059/citrus-diet-food-fresh-42059.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
             });
         }
-
-
     }
 }
